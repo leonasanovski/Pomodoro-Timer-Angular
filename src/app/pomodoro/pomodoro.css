@@ -68,3 +68,21 @@
   font-weight: bold;
   margin: 0;
 }
+
+.options{
+  display: flex;
+  justify-content: space-around;
+  gap: 60px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.main-class{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2em;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}

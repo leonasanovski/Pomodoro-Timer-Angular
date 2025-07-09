@@ -1,0 +1,45 @@
+.main-time-div {
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  border-radius: 12px;
+  color: #ffdb5d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  border: #ffdb5d 2px solid;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #ffffff22;
+  border: none;
+  padding: 8px 14px;
+  font-size: 18px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.decrease:hover {
+  background-color: rgba(255, 157, 157, 0.47);
+}
+
+.increase:hover {
+  background-color: rgba(172, 255, 125, 0.27);
+}
+
+span {
+  font-size: 20px;
+  min-width: 30px;
+  margin: 0 10px;
+  display: inline-block;
+}

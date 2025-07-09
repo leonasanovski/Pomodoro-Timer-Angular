@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {PomodoroTimerService} from '../pomodoro-timer.service';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-break-time',
@@ -7,27 +6,22 @@ import {PomodoroTimerService} from '../pomodoro-timer.service';
   templateUrl: './break-time.html',
   styleUrl: './break-time.css'
 })
-export class BreakTime {
-  breakTime: number = 5;
 
-  //same as in Spring, we need to get the service to use it
-  constructor(private pomodoroTimerService: PomodoroTimerService) {
-  }//now we can use it
+export class BreakTime {
+  @Input() breakTime: number = 5;
+  @Output() breakTimeChange = new EventEmitter<number>();
+
   increaseBreakTime() {
     if (this.breakTime < 60) {
       this.breakTime++;
-      this.pomodoroTimerService.setBreakTime(this.breakTime);
-      console.log(`break time is: ${this.breakTime}`)
-
+      this.breakTimeChange.emit(this.breakTime)
     }
   }
 
   decreaseBreakTime() {
     if (this.breakTime > 1) {
       this.breakTime--;
-      this.pomodoroTimerService.setBreakTime(this.breakTime)
-      console.log(`break time is: ${this.breakTime}`)
-
+      this.breakTimeChange.emit(this.breakTime)
     }
   }
 }

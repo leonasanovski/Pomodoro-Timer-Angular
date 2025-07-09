@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {PomodoroTimerService} from '../pomodoro-timer.service';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-study-time',
@@ -7,22 +6,23 @@ import {PomodoroTimerService} from '../pomodoro-timer.service';
   templateUrl: './study-time.html',
   styleUrl: './study-time.css'
 })
+
 export class StudyTime {
-  studyTime: number = 20;
-  constructor(private pomodoroTimerService: PomodoroTimerService) {}
+  @Input() studyTime: number = 25;
+  @Output() studyTimeChange = new EventEmitter<number>();
+
   increaseStudyTime(){
     if(this.studyTime < 60){
       this.studyTime++;
-      this.pomodoroTimerService.setStudyTime(this.studyTime)
       console.log(`study time is: ${this.studyTime}`)
-
+      this.studyTimeChange.emit(this.studyTime)
     }
   }
   decreaseStudyTime(){
     if(this.studyTime > 1){
       this.studyTime--;
-      this.pomodoroTimerService.setStudyTime(this.studyTime)
       console.log(`study time is: ${this.studyTime}`)
+      this.studyTimeChange.emit(this.studyTime)
     }
   }
 }
