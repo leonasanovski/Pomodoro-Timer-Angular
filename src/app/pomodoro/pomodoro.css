@@ -7,12 +7,12 @@
   color: #ffd86a;
   font-family: 'Segoe UI', sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  max-width: 560px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
 .pomodoroTimer h2 {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -50,15 +50,13 @@
   padding: 10px 12px;
   background-color: rgba(255, 255, 255, 0.08);
   border: 1px solid #ffd86a;
-  border-radius: 12px;
+  border-radius: 10px;
   color: white;
-  font-family: 'Segoe UI', sans-serif;
   text-align: center;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
 
 .cycles h3 {
-  margin-bottom: 5px;
+  margin: 10px 0;
   font-size: 18px;
   color: #ffd86a;
 }
@@ -69,15 +67,15 @@
   margin: 0;
 }
 
-.options{
+.options {
   display: flex;
-  justify-content: space-around;
-  gap: 60px;
+  justify-content: space-evenly;
   width: 100%;
-  max-width: 600px;
+  max-width: 650px;
+  box-sizing: border-box;
 }
 
-.main-class{
+.main-class {
   display: flex;
   flex-direction: column;
   justify-content: center;

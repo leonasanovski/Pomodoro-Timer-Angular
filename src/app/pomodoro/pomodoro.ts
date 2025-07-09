@@ -49,7 +49,6 @@ export class Pomodoro implements OnInit {
     this.startBreak.volume = 0.65
     this.studyTimeStarts.preload = 'auto';
     this.studyTimeStarts.volume = 0.65
-
     if (this.studyMode) {
       this.minutes = this.studyTimeInterval;
       this.seconds = 0;
@@ -63,10 +62,8 @@ export class Pomodoro implements OnInit {
     if (this.timeRunning) return;
     this.timeRunning = true
     this.intervalKeeper = setInterval(() => {
-      if (this.minutes === 0 && this.seconds === 3) {
-        this.studyMode ?
-          this.studyTimeEnds.play()
-          : this.studyTimeStarts.play()
+      if (this.seconds === 3 && this.minutes == 0) {
+        this.studyMode ? this.studyTimeEnds.play() : this.studyTimeStarts.play()
       }
       if (this.seconds === 0) {
         if (this.minutes === 0) {
@@ -76,7 +73,7 @@ export class Pomodoro implements OnInit {
           this.seconds = 0
           this.numberOfTimers++;
           this.pomodorosCompleted = Math.floor(this.numberOfTimers / 2)
-          this.startBreak.play()
+          this.startBreak.play();
         } else {
           this.minutes--;
           this.seconds = 59
@@ -98,5 +95,16 @@ export class Pomodoro implements OnInit {
     this.seconds = 0
     this.numberOfTimers = 0;
     this.pomodorosCompleted = 0;
+  }
+
+  unlockAutoPlayAudio() {
+    this.studyTimeEnds.play().then(() => this.studyTimeEnds.pause());
+    this.studyTimeStarts.play().then(() => this.studyTimeStarts.pause());
+    this.startBreak.play().then(() => this.startBreak.pause());
+  }
+
+  startPomodoroSession() {
+    this.unlockAutoPlayAudio();
+    this.startTimer();
   }
 }

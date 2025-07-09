@@ -14,14 +14,12 @@ export class StudyTime {
   increaseStudyTime(){
     if(this.studyTime < 60){
       this.studyTime++;
-      console.log(`study time is: ${this.studyTime}`)
       this.studyTimeChange.emit(this.studyTime)
     }
   }
   decreaseStudyTime(){
     if(this.studyTime > 1){
       this.studyTime--;
-      console.log(`study time is: ${this.studyTime}`)
       this.studyTimeChange.emit(this.studyTime)
     }
   }
