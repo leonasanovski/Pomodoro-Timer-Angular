@@ -1,0 +1,22 @@
+<div class="pomodoroTimer">
+  <h2>
+    @if (studyMode) {
+      It's time to get back to work, focus and succeed :)
+    } @else {
+      It's time to take a break, take a coffee and relax :)
+    }
+  </h2>
+  <h4>
+    {{ minutes < 10 ? '0' + minutes : minutes }}:
+    {{ seconds < 10 ? '0' + seconds : seconds }}
+  </h4>
+  <div class="commands">
+    <button (click)="startTimer()">Start</button>
+    <button (click)="pauseTimer()">Pause</button>
+    <button (click)="resetTimer()">Reset</button>
+  </div>
+  <div class="cycles">
+    <h3>Pomodoros Completed</h3>
+    <p>{{ pomodorosCompleted }}</p>
+  </div>
+</div>

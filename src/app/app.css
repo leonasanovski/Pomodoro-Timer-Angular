@@ -1,0 +1,18 @@
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  gap: 50px;
+}
+.options{
+  display: flex;
+  justify-content: space-around;
+  gap: 60px;
+  width: 100%;
+  max-width: 600px;
+}
+
